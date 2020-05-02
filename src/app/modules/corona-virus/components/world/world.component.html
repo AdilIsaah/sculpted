@@ -6,7 +6,12 @@
   </div>
   <div class="col-4_xs-12">
     <div class="corona-virus-details">
-      <app-virtual-scroll itemSize="2" maxWidth="36em">
+      <div class="corona-virus-cases">
+        <app-accordion icon="language" isExpanded="true" title="World Wide Cases">
+          <app-display-details [data]="worldWideCases" [loading]="loading"></app-display-details>
+        </app-accordion>
+      </div>
+      <app-virtual-scroll itemSize="3" maxWidth="36em">
         <div class="corona-virus-cases">
           <app-accordion icon="map" isExpanded="{{isExpandCountry}}" (accordionOpened)="openCountry()" (accordionClosed)="closeCountry()" title="Country Wise Cases">
             <div *ngIf="countryWiseCases else noSelection">
