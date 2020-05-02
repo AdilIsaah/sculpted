@@ -1,0 +1,60 @@
+<div class="grid-noGutter">
+  <div class="col-8_xs-12">
+    <div class="corona-virus-map">
+      <svg appWorldMap (clickedOncountry)="clickedOncountry($event)"></svg>
+    </div>
+  </div>
+  <div class="col-4_xs-12">
+    <div class="corona-virus-details">
+      <app-virtual-scroll itemSize="2" maxWidth="36em">
+        <div class="corona-virus-cases">
+          <app-accordion icon="map" isExpanded="{{isExpandCountry}}" (accordionOpened)="openCountry()" (accordionClosed)="closeCountry()" title="Country Wise Cases">
+            <div *ngIf="countryWiseCases else noSelection">
+              <app-image imageUrl="../../../assets/images/flags/{{countryWiseCases.countryCode }}.svg"
+                imageTitle="{{ countryWiseCases.country }}">
+              </app-image>
+
+              <div
+                *ngIf="countryWiseCases.confirmed || countryWiseCases.recovered || countryWiseCases.deaths > 0 else noData">
+                <app-display-details [data]="[
+                    { key: 'Confirmed', value: countryWiseCases.confirmed },
+                    { key: 'Recovered', value: countryWiseCases.recovered },
+                    { key: 'Deaths', value: countryWiseCases.deaths }
+                  ]" [loading]="loading"></app-display-details>
+              </div>
+
+              <ng-template #noData>
+                <app-empty-state icon="error_outline">
+                  <span class="title">
+                    No Data Found
+                  </span>
+                </app-empty-state>
+              </ng-template>
+            </div>
+
+            <ng-template #noSelection>
+              <app-empty-state icon="info_outline">
+                <span class="title">
+                  Country Not Selected
+                </span>
+                <p class="content">
+                  Please click on any country on the map to view its cases
+                </p>
+              </app-empty-state>
+            </ng-template>
+          </app-accordion>
+        </div>
+        <div class="corona-virus-cases">
+          <app-accordion icon="language" isExpanded="true" title="World Wide Cases">
+            <app-display-details [data]="worldWideCases" [loading]="loading"></app-display-details>
+          </app-accordion>
+        </div>
+        <div class="corona-virus-cases">
+          <app-accordion icon="sort" title="View By Order">
+            <app-corona-virus-table></app-corona-virus-table>
+          </app-accordion>
+        </div>
+      </app-virtual-scroll>
+    </div>
+  </div>
+</div>

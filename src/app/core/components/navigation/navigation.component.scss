@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/variables.scss";
+
+.navigation {
+	.link {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: $link-color;
+			text-decoration: none;
+		}
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	.updated {
+		font-style: italic;
+	}
+}

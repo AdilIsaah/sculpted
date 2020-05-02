@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+@mixin loading-skeleton(
+	$objects: (),
+	$element-height: 150px,
+	$color: $skeleton-loader-color,
+	$background: $white
+) {
+	$positions: ();
+	$gradients: ();
+	$sizes: ();
+	$rnd: unique-id();
+
+	@each $obj in $objects {
+		$positions: append(
+			$positions,
+			#{map-get($obj, "direction") map-get($obj, "position")},
+			"comma"
+		);
+		$gradients: append(
+			$gradients,
+			linear-gradient($color #{map-get($obj, "height")}, transparent 0),
+			"comma"
+		);
+		$sizes: append($sizes, #{map-get($obj, "width") auto}, "comma");
+	}
+
+	@at-root {
+		@keyframes loading-skeleton-animation-#{$rnd} {
+			to {
+				background-position: calc(100% + 50px) 0, #{$positions};
+			}
+		}
+	}
+
+	background-image: linear-gradient(
+			100deg,
+			rgba($background, 0),
+			rgba($background, 0.1) 50%,
+			rgba($background, 0) 80%
+		),
+		#{$gradients};
+	background-size: 50px auto, #{$sizes};
+	background-position: 0 0, #{$positions};
+	animation: loading-skeleton-animation-#{$rnd} 1s infinite;
+}

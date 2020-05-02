@@ -1,0 +1,26 @@
+.card-wrapper {
+	margin: 1rem;
+	background: #3f51b5;
+	color: #fff;
+	text-align: left;
+
+	.card-title {
+		font-size: 0.8rem;
+		font-weight: bolder;
+	}
+
+	.card-content {
+		font-size: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	.card-avator-wrapper {
+		margin: auto auto 0 auto;
+		.card-avator-image {
+			text-align: center;
+			.mat-icon {
+				font-size: 2.5rem;
+			}
+		}
+	}
+}

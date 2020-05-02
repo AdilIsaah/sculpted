@@ -1,0 +1,21 @@
+<section class="empty-state">
+  <div class="grid-noGutter">
+    <div class="col-12">
+      <mat-icon class="empty-state-icon" mat-list-icon>
+        {{ icon }}
+      </mat-icon>
+    </div>
+
+    <div class="col-12">
+      <h3 class="empty-state-title">
+        <ng-content select=".title"></ng-content>
+      </h3>
+    </div>
+
+    <div class="col-12">
+      <div class="empty-state-content">
+        <ng-content select=".content"></ng-content>
+      </div>
+    </div>
+  </div>
+</section>

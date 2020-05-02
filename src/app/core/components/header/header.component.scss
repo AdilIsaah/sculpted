@@ -1,0 +1,56 @@
+@import "../../../../assets/styles/variables.scss";
+
+.header {
+	text-align: center;
+
+	.header-content {
+		align-self: normal;
+		padding: 0.6rem 0;
+
+		@media (max-width: 36em) {
+			padding: 0.5rem 0;
+		}
+
+		.navigation-button {
+			text-align: left;
+		}
+
+		.app-title {
+			text-align: left;
+
+			a {
+				color: $white;
+				text-decoration: none;
+
+				img {
+					width: 100px;
+					height: auto;
+					margin-top: 5px;
+				}
+			}
+		}
+
+		.extra-button {
+			text-align: right;
+
+			.built-by {
+				background-color: $white;
+				color: $black;
+				@media (max-width: 36em) {
+					font-size: 8pt;
+				}
+			}
+
+			.more {
+				animation: shake;
+				transform: translate3d(0, 0, 0);
+				backface-visibility: hidden;
+				perspective: 1000px;
+				animation-duration: 1s;
+				animation-delay: 15s;
+				animation-timing-function: linear;
+				animation-iteration-count: 1;
+			}
+		}
+	}
+}

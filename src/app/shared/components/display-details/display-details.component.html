@@ -1,0 +1,10 @@
+<section class="display-details" [ngClass]="{'skeleton-loader' : loading}">
+    <div class="grid-1_xs-2-noGutter-spaceAround">
+        <div class="col" *ngFor="let record of data">
+            <div class="display-block">
+                <p>{{ record.key }}</p>
+                {{ record.value | number: "" }}
+            </div>
+        </div>
+    </div>
+</section>

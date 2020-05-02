@@ -1,0 +1,20 @@
+<mat-card *ngIf="title && value" class="card-wrapper">
+    <div class="columns">
+        <div class="column col-9">
+            <mat-card-title class="card-title">
+                {{ title }}
+            </mat-card-title>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-content>
+                <p class="card-content">
+                    {{ value }}
+                </p>
+            </mat-card-content>
+        </div>
+        <div class="column col-3 card-avator-wrapper">
+            <div mat-card-avatar class="card-avator-image">
+                <mat-icon>public</mat-icon>
+            </div>
+        </div>
+    </div>
+</mat-card>

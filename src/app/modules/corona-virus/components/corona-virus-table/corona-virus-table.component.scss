@@ -1,0 +1,22 @@
+@import "../../../../../assets/styles/variables.scss";
+
+.table-search {
+	text-align: center;
+
+	input {
+		border: none;
+		border-bottom: 1px solid $gray;
+		padding: 1em;
+		margin: 1em auto;
+	}
+}
+
+table {
+	width: 100%;
+	box-shadow: none;
+	text-align: center;
+
+	th {
+		text-align: center;
+	}
+}

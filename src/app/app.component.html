@@ -1,0 +1,16 @@
+<div [ngClass]="{'dark-theme': isDarkTheme}">
+    <div class="container mat-app-background" [class.is-mobile]="mobileQuery.matches">
+        <app-header class="app-header"></app-header>
+
+        <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+            <!-- <mat-sidenav (closedStart)="menuClosed()" [opened]="toggleNav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                <app-search class="app-search"></app-search>
+                <app-navigation></app-navigation>
+            </mat-sidenav> -->
+
+            <mat-sidenav-content>
+                <router-outlet></router-outlet>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</div>
